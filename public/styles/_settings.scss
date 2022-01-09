@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Oswald:500");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&family=Source+Sans+Pro&display=swap');
+// . Fonts
+
+@font-face {
+  font-family: "Coco Regular";
+  src: url("../../font/Coco-Sharp-Regular-trial.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("../fonts/GothamPro-Medium.ttf") format("truetype");
+}
+
+$font-1: "Coco Regular", sans-serif;
+$font-gotham: "Gotham Pro", sans-serif;
+$font-text: "Bebas Neue", cursive;
+$font-Oswald : "Oswald", sans-serif; 
+
+// . Colors 
+
+// BLEU CLAIR \\
+$sky-blue: #90caf9;
+$classic-blue: #42a5f5;
+$turts-blue: #2196f3;
+
+// BLEU FONCÉ \\
+// . Colors Base
+
+$white: #e3f2fd;
+$black: #242424;
+$orange: #ff8200;
+
+
+// . Colors
+$turquoise : #5dd9c1;
+$vertD : #ACFCD9;
+$lavande: #B084CC;
+$lilas: #665687;
+$violet : #190933;
+
+// . Mixins
+
+@mixin verticalCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// . Global Configuration
+
+* {
+  margin: 0;
+  padding: 0;
+  // color: red;
+}
+
+a {
+  text-decoration: none;
+  font-family: $font-gotham;
+  color: $vertD;
+}
+
+body {
+  background-color: $black;
+}
+
+h1 {
+  color: $white;
+  font-family: $font-gotham;
+}
+
+p {
+  color: $black;
+  font-family: $font-1;
+  font-weight: bold;
+}
+
+button {
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+}

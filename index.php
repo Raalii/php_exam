@@ -1,7 +1,12 @@
 <?php
-// require('functions.php');
-$mysqli = new mysqli("localhost", "root", "", "php_exam"); // Connexion à la db "php_exam"
-// si vous avez une erreur ici, remplacez le deuxième "root" par une string vide
-
-// $element = [14, 56, 45, "4\n"];
+require './app/models/User.php';
+session_start();
+require './app/functions.php';
+echo redirectUserAccordingToStateOfSession();
+require './app/view/include/header.php';
 ?>
+
+
+<pre>
+    <h1 style="color : white"> Bienvenue, <?= (isset($_SESSION['auth']) ? $_SESSION['auth']->getUsername() : "invité"); ?> </h1>
+</pre>

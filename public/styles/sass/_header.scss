@@ -1,0 +1,78 @@
+.RealContent {
+  // position: relative;
+  // display: block;
+  width: 100%;
+  height: 100px;
+}
+
+.NavbarContainer {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 10%;
+  border-bottom: 1px lighten($black, 10%) solid;
+  #logo {
+    position: relative;
+    width: 25%;
+    height: 100%;
+  }
+
+  #user-panel {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    // flex-direction: column;
+
+    .connect-link {
+      @include verticalCenter;
+      flex-direction: column;
+      margin-right: 10px;
+      border: none;
+      background: none;
+      color: $vertD;
+      &:hover {
+        color: darken($vertD, 10%);
+      }
+    }
+  }
+
+  nav {
+    width: 50%;
+    position: relative;
+    height: 100%;
+    // text-align: right;
+    @include verticalCenter;
+  }
+  nav a {
+    font-family: $font-Oswald;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $white;
+    margin: 0 15px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1.5px;
+      bottom: 0;
+      margin: -5px 0;
+      background-color: $white;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.4s ease-in-out 0s;
+    }
+    &:hover:before {
+      visibility: visible;
+      transform: scaleX(0.5);
+    }
+  }
+}

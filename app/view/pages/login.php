@@ -1,26 +1,38 @@
 <?php
-require_once '../../functions.php';
-$result = null;
-if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $result = $_POST['email'];
-}
-var_dump($result);
-
-
-
-
-
+session_start();
+$title = "Zinou";
+$displayHeader = true;
+require '../../controllers/_login.php';
 ?>
 
-<h1>Se connecter</h1>
+<?php if (isset($_SESSION['auth'])) : ?>
+    <script>window.top.location = "http://localhost"</script>
+<?php endif ?>
 
-<form action="" method="post">
-    <input type="email" name="email" id="email" placeholder="mail"> <br>
-    <input type="password" name="password" id="password" placeholder="entrez le mot de passe">
-    <button type="submit">Valider</button>
-</form>
-
-
+<?php
+require '../include/header.php';
+?>
 
 
-<h2>Pas de compte ? <a href="./register.php"> S'inscrire</a></h2>
+<div class="login">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="" method="POST">
+        <h3>Se connecter</h3>
+        <p class="alert" style="color: <?php if (!empty($success)) echo '#ACFCD9';
+                                        else echo '#ff8200'; ?>;"> <?php if (!empty($success)) echo $success;
+                                                                    else echo $error; ?> </p>
+        <label for="username">Email</label>
+        <input placeholder="Adresse Email" id="username" type="email" name="email">
+
+        <label for="password">Mot de passe</label>
+        <input type="password" placeholder="Mot de passe" id="password" name="password">
+
+        <button>Se Connecter</button>
+        <div class="social">
+            <p> Pas de compte ? <a href="./register.php">S'inscrire</a> </p>
+        </div>
+    </form>
+</div>
