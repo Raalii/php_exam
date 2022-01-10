@@ -50,6 +50,27 @@ $violet : #190933;
 
 // . Global Configuration
 
+ /* width */
+ ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: darken($vertD, 10%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darken($vertD, 20%);
+} 
+
+
 * {
   margin: 0;
   padding: 0;
@@ -64,6 +85,7 @@ a {
 
 body {
   background-color: $black;
+  // overflow-y: scroll !important;
 }
 
 h1 {

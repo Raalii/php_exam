@@ -25,7 +25,7 @@ require '../include/header.php';
                                         else echo '#ff8200'; ?>;"> <?php if (!empty($success)) echo $success;
                                                                     else echo $error; ?> </p>
         <label for="username">Email</label>
-        <input placeholder="Adresse Email" id="username" type="email" name="email">
+        <input placeholder="ou Pseudo !" id="username" type="text" name="email">
 
         <label for="password">Mot de passe</label>
         <input type="password" placeholder="Mot de passe" id="password" name="password">

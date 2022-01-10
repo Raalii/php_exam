@@ -27,9 +27,7 @@ if (empty($title)) $title = "Forum";
             </div>
             <nav>
                 <a href="#">Mon profil</a>
-                <a href="#">Works</a>
-                <a href="#">Partners</a>
-                <a href="#">Price</a>
+                <a href="#">Publier</a>
                 <a href="#">Rechercher</a>
             </nav>
             <div id="user-panel">
