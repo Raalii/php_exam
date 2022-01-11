@@ -74,7 +74,6 @@ $violet : #190933;
 * {
   margin: 0;
   padding: 0;
-  // color: red;
 }
 
 a {
@@ -83,9 +82,13 @@ a {
   color: $vertD;
 }
 
+html {
+  scrollbar-color: $vertD transparent;
+  scrollbar-width: thin;
+}
+
 body {
   background-color: $black;
-  // overflow-y: scroll !important;
 }
 
 h1 {
@@ -93,8 +96,8 @@ h1 {
   font-family: $font-gotham;
 }
 
-p {
-  color: $black;
+p, label {
+  color: $white;
   font-family: $font-1;
   font-weight: bold;
 }

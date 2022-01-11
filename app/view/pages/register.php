@@ -11,7 +11,7 @@ require '../../controllers/_register.php';
     
 <?php require '../include/header.php';?>
 
-
+<div class="NavbarContainer" style="z-index: 0;"></div>
 <div class="register">
     <div class="background">
         <div class="shape"></div>
@@ -38,6 +38,11 @@ require '../../controllers/_register.php';
         </div>
     </form>
 </div>
+
+
+<?php
+require '../include/footer.php';
+?>
 
 
 <script>

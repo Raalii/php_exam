@@ -7,16 +7,15 @@ if (empty($title)) $title = "Forum";
 <html lang="en">
 
 <head>
+    <title><?= $title ?></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public/styles/styles.css">
-    <title><?= $title ?></title>
 </head>
 
 <body>
     <?php if (!empty($displayHeader) && $displayHeader == true) : ?>
-        <div class="NavbarContainer"></div>
     <?php else : ?>
         <div class="NavbarContainer">
             <div id="logo">
@@ -26,9 +25,10 @@ if (empty($title)) $title = "Forum";
 
             </div>
             <nav>
-                <a href="#">Mon profil</a>
-                <a href="#">Publier</a>
-                <a href="#">Rechercher</a>
+                <a href="/">Acceuil</a>
+                <a href="/app/view/pages/account.php">Mon profil</a>
+                <a href="/app/view/pages/newPost.php">Publier</a>
+                <a href="/app/view/pages/search.php">Rechercher</a>
             </nav>
             <div id="user-panel">
                 <form action="/app/view/pages/login.php" method="POST">

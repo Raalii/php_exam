@@ -13,7 +13,7 @@ require '../../controllers/_login.php';
 require '../include/header.php';
 ?>
 
-
+<div class="NavbarContainer"></div>
 <div class="login">
     <div class="background">
         <div class="shape"></div>
@@ -36,3 +36,8 @@ require '../include/header.php';
         </div>
     </form>
 </div>
+
+
+<?php
+require '../include/footer.php';
+?>
