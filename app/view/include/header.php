@@ -26,9 +26,10 @@ if (empty($title)) $title = "Forum";
             </div>
             <nav>
                 <a href="/">Acceuil</a>
-                <a href="/app/view/pages/account.php">Mon profil</a>
-                <a href="/app/view/pages/newPost.php">Publier</a>
+                <a href="/app/view/pages/account.php?profile=<?= $_SESSION['auth']->getId() ?>">Mon profil</a>
+                <a href="/app/view/pages/newPost.php">Publier</a>   
                 <a href="/app/view/pages/search.php">Rechercher</a>
+                <a href="/app/view/pages/myArticles.php">Mes articles</a>
             </nav>
             <div id="user-panel">
                 <form action="/app/view/pages/login.php" method="POST">

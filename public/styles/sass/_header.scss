@@ -6,14 +6,14 @@
 }
 
 .NavbarContainer {
-  z-index: 10654684684654684;
-  background-color: $black;
+  z-index: 100;
+  background-color: $lilas;
   position: fixed;
   display: flex;
   width: 100%;
   align-items: center;
   height: 10%;
-  border-bottom: 1px lighten($black, 10%) solid;
+  border-bottom: 3px lighten($lilas, 10%) solid;
   #logo {
     position: relative;
     width: 25%;

@@ -1,0 +1,16 @@
+.popUpFormular {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    background-color: rgba(0, 0, 0, 0.623);
+    display: none;
+
+    .exit {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}

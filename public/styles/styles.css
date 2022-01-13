@@ -50,7 +50,7 @@ body {
   background-color: #242424;
 }
 
-h1 {
+h1, h2, h3, h4, h5 {
   color: #e3f2fd;
   font-family: "Gotham Pro", sans-serif;
 }
@@ -75,14 +75,14 @@ li {
 }
 
 .NavbarContainer {
-  z-index: 10654684684654684;
-  background-color: #242424;
+  z-index: 100;
+  background-color: #665687;
   position: fixed;
   display: flex;
   width: 100%;
   align-items: center;
   height: 10%;
-  border-bottom: 1px #3e3e3e solid;
+  border-bottom: 3px #7f6ea2 solid;
 }
 .NavbarContainer #logo {
   position: relative;
@@ -459,6 +459,22 @@ li {
 }
 .indexContainer button:hover {
   transform: scale(1.05);
+}
+
+.popUpFormular {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  background-color: rgba(0, 0, 0, 0.623);
+  display: none;
+}
+.popUpFormular .exit {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,1 +1,4 @@
-<?php require "../include/header.php";
+<?php 
+require "../../models/User.php";
+session_start();
+require "../include/header.php";
