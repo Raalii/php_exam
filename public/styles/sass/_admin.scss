@@ -1,0 +1,26 @@
+.allContainer {
+    display: flex;
+    align-items: baseline;
+    .profileContainer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 120%;
+        ul {
+            margin-top: 100px;
+        }
+    }
+    
+    li {
+        margin-bottom: 3mm
+    }
+    
+    .postContainer {
+        @include verticalCenter;
+        flex-direction: column;
+
+        .postContent {
+            margin-bottom: 2cm;
+        }
+    }
+}

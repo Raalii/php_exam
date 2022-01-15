@@ -14,6 +14,10 @@ require "../include/header.php";
             Nombre de post : <?= checkNbrOfPost($UserToShow->getId()) ?>
         </p>
 
+        <p>
+            Grade : <?= $UserToShow->getType() ?>
+        </p>
+
         <?php if (!$isMyAccount) :  ?>
             <p>
                 Le contacter : <?= $UserToShow->getEmail() ?>

@@ -12,6 +12,7 @@ if (empty($title)) $title = "Forum";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public/styles/styles.css">
+    <link rel="shortcut icon" href="../../../public/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -30,6 +31,9 @@ if (empty($title)) $title = "Forum";
                 <a href="/app/view/pages/newPost.php">Publier</a>   
                 <a href="/app/view/pages/search.php">Rechercher</a>
                 <a href="/app/view/pages/myArticles.php">Mes articles</a>
+                <?php if ($_SESSION['auth']->getType() == "Admin") : ?>
+                <a href="/app/view/pages/admin.php">Admin</a>
+                <?php endif ?>
             </nav>
             <div id="user-panel">
                 <form action="/app/view/pages/login.php" method="POST">
@@ -50,7 +54,3 @@ if (empty($title)) $title = "Forum";
         </div>
         <div class="RealContent"></div>
     <?php endif ?>
-
-    <style>
-
-    </style>

@@ -7,13 +7,13 @@
 
 .NavbarContainer {
   z-index: 100;
-  background-color: $lilas;
+  background-color: darken($vertD, 70%);
   position: fixed;
   display: flex;
   width: 100%;
   align-items: center;
   height: 10%;
-  border-bottom: 3px lighten($lilas, 10%) solid;
+  border-bottom: 3px darken($vertD, 60%) solid;
   #logo {
     position: relative;
     width: 25%;

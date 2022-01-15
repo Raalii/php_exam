@@ -21,10 +21,10 @@ require './app/controllers/_index.php';
 						<img src="https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e1c8fe0c9197d66232511525bfd1cc82&auto=format&fit=crop&w=1100&q=80" class="mask">
 						<div class="h1"><?= $row[1] ?></div>
 						<p> <?= (strlen($row[2]) < 300) ? $row[2] : substr($row[2], 0, 300) . "..." ?> </p>
-						<form action="/app/view/pages/postDetail.php" method="POST">
+						<form action="/app/view/pages/postDetail.php" method="GET">
 							<input type="hidden" name="articleDetail" value="<?= $row[0] ?>">
 							<div><button class="button">En savoir plus</button></div>
-						</form>
+							</form>
 					</div>
 				</div>
 		<?php endwhile;	?>

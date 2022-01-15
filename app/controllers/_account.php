@@ -75,7 +75,7 @@ if (!is_null($idOfProfilToShow)) {
         $result = mysqli->query("SELECT * FROM user WHERE id = " . $idOfProfilToShow);
         $result = $result->fetch_row();
         if (!empty($result)) {
-            $UserToShow = new User($idOfProfilToShow, $result[1], $result[2]);
+            $UserToShow = new User($idOfProfilToShow, $result[1], $result[2], $result[4]);
         }
     }
 }

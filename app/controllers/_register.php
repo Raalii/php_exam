@@ -9,7 +9,7 @@ $email = (empty($_POST['email'])) ? null : $_POST['email'];
 $username = (empty($_POST['username'])) ? null : $_POST['username'];
 $password = (empty($_POST['password'])) ? null : $_POST['password'];
 $vpassword = (empty($_POST['vpassword'])) ? null : $_POST['vpassword'];
-
+$type = "normal";
 
 
 if (!is_null($email) && !is_null($username) && !is_null($password)) {
@@ -17,8 +17,8 @@ if (!is_null($email) && !is_null($username) && !is_null($password)) {
         $password = password_hash($password, PASSWORD_BCRYPT);
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // Check email 
             if (password_verify($vpassword, $password)) { // Check password
-                $statement = mysqli->prepare("INSERT INTO user (email, username, password) VALUES (?, ?, ?)");
-                $statement->bind_param("sss", $email, $username, $password);
+                $statement = mysqli->prepare("INSERT INTO user (email, username, password, type) VALUES (?, ?, ?, ?)");
+                $statement->bind_param("ssss", $email, $username, $password, $type);
                 $statement->execute();
                 $success = "Votre inscription a été enregistré avec succès";
             } else {

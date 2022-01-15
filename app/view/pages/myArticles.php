@@ -16,6 +16,11 @@ require "../include/header.php";
         <h3>Titre : <?= $row[1] ?></h3>
         <p><?= $row[2] ?></p>
         <p style="color: wheat;">Publié le <?= $row[3] ?></p>
+        <form action="" method="POST">
+            <input type="hidden" name="articleDetail" value="<?= $row[0] ?>">
+            <input type="hidden" name="delete" value="delete">
+            <button type="submit">Supprimer mon post</button>
+        </form>
         <form action="http://localhost/app/view/pages/edit.php" method="POST">
             <input type="hidden" name="idArticle" value="<?= $row[0] ?>">
             <button type="submit">editer l'article</button>

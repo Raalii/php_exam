@@ -4,7 +4,6 @@ session_start();
 require "../include/header.php";
 require "../../controllers/_postDetail.php";
 ?>
-
 <?php if (is_array($result)) : ?>
     <h1><?= $result[1] ?></h1>
     <!-- <pre> -->
@@ -16,6 +15,10 @@ require "../../controllers/_postDetail.php";
             <input type="hidden" name="articleDetail" value="<?= $result[0] ?>">
             <input type="hidden" name="delete" value="delete">
             <button type="submit">Supprimer mon post</button>
+        </form>
+        <form action="http://localhost/app/view/pages/edit.php" method="POST">
+            <input type="hidden" name="idArticle" value="<?= $result[0] ?>">
+            <button type="submit">editer l'article</button>
         </form>
     <?php endif ?>
 <?php else : ?> 
