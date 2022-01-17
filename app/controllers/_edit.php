@@ -19,10 +19,13 @@ if (!is_null($titleMod) && !is_null($descriptionMod) && !is_null($editIdArticle)
 }
 
 $colorMsg = ($success) ? "green" : "red";
+$postToShow = null;
+
 
 if (!is_null($editIdArticle)) {
     $result = mysqli->query("SELECT * FROM articles WHERE idArticle = $editIdArticle");
     $result = $result->fetch_row();
+    if (is_array($result)) $postToShow = new Post(...$result);
 }
 
 

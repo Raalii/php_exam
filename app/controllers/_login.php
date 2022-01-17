@@ -16,8 +16,8 @@ if (!is_null($emailOrUsername) && !is_null($password)) {
     $result = mysqli->query("SELECT * FROM user WHERE $column = '$emailOrUsername'");
     $result = $result->fetch_row();
     if (!empty($result)) {
-        if (password_verify($password, $result[3])) {
-            $User = new User($result[0], $result[1], $result[2], $result[4]);
+        if (password_verify($password, $result[4])) {
+            $User = new User(...$result);
             $_SESSION['auth'] = $User;
         } else {
             $error = "Le mot de passe et/ou l'adresse email ne sont pas valides.";

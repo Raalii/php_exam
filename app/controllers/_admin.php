@@ -36,9 +36,9 @@ if (!is_null($deletePostId)) {
 
 $deletePostColor = ($deletePostSuccess) ? "green" : "red";
 $deleteUserColor = ($deleteUserSuccess) ? "green" : "red";
-
+$selection = "idArticle, title, description, dateOfPost, idUser, email, username, type";
 
 
 
 $resultUser = mysqli->query('SELECT * FROM user ORDER BY id DESC');
-$resultPost = mysqli->query('SELECT * FROM articles INNER JOIN user ON user.id = articles.idUser ORDER BY dateOfPost DESC');
+$resultPost = mysqli->query("SELECT $selection FROM articles INNER JOIN user ON user.id = articles.idUser ORDER BY dateOfPost DESC");

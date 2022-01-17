@@ -2,7 +2,7 @@
 require './app/models/User.php';
 session_start();
 require './app/functions.php';
-echo redirectUserAccordingToStateOfSession();
+redirectUserAccordingToStateOfSession();
 require './app/view/include/header.php';
 require './app/controllers/_index.php';
 ?>

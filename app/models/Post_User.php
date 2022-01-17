@@ -1,37 +1,32 @@
 <?php
 
 
-class User
+
+class Post_User extends Post
 {
-    private int $id;
     private string $email;
     private string $username;
     private string $type;
 
-    public function __construct(int $id, string $email, string $username, string $type)
+    
+    public function __construct(int $idArticle, string $title, string $description, string $dateOfPost, int $idUser, string $email, string $username, string $type)
     {
-        $this->id = $id;
-        $this->email = $email;
+        parent::__construct($idArticle, $title, $description, $dateOfPost, $idUser);
         $this->username = $username;
+        $this->email = $email;
         $this->type = $type;
     }
 
+
     public function __toString(): string
     {
-        return "Id : $this->id, email : $this->email, username : $this->username, type : $this->type";
+        return parent::__toString() . ", fait par : $this->username, grade : $this->type, email : $this->email, ID_USER : $this->idUser ";
     }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
 
     public function getEmail(): string
     {
         return $this->email;
     }
-
 
     public function getUsername(): string
     {
@@ -43,19 +38,12 @@ class User
         return $this->type;
     }
 
+
     public function setType(string $type): self
     {
         $this->type = $type;
         return $this;
     }
-
-
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
-
 
     public function setEmail(string $email): self
     {
@@ -69,4 +57,6 @@ class User
         $this->username = $username;
         return $this;
     }
+
+
 }

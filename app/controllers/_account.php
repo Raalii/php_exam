@@ -3,7 +3,7 @@ require (dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php');
 require (dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'functions.php');
 $idOfProfilToShow = (empty($_GET['profile'])) ? null : intval($_GET['profile']);
 $isMyAccount = false;
-$UserToShow = null;
+$userToShow = null;
 $result = null;
 $currentIdUser = $_SESSION['auth']->getId();
 
@@ -50,32 +50,36 @@ if (!is_null($usernameToModify)) {
 }
 
 // . Password
-if (!is_null($passwordToModifyNew) && !is_null($passwordToModifyLast) && $passwordToModifyLast !== $passwordToModifyNew) {
-    $resultPasswd = mysqli->query("SELECT password FROM user WHERE id = $currentIdUser");
-    if (password_verify($passwordToModifyLast, $resultPasswd->fetch_row()[0])) {
-        $hash = password_hash($passwordToModifyNew, PASSWORD_BCRYPT);
-        mysqli->query("UPDATE user SET password = '$hash' WHERE id = $currentIdUser");
-        $passwordSuccess = "Votre mot de passe a bien été modifié !";
+if (!is_null($passwordToModifyNew) && !is_null($passwordToModifyLast)) {
+    if ($passwordToModifyLast !== $passwordToModifyNew) {
+        $resultPasswd = mysqli->query("SELECT password FROM user WHERE id = $currentIdUser");
+        if (password_verify($passwordToModifyLast, $resultPasswd->fetch_row()[0])) {
+            $hash = password_hash($passwordToModifyNew, PASSWORD_BCRYPT);
+            mysqli->query("UPDATE user SET password = '$hash' WHERE id = $currentIdUser");
+            $passwordSuccess = "Votre mot de passe a bien été modifié !";
+        } else {
+            $passwordError = "L'ancien mot de passe n'est pas correct. Veuillez réessayez.";
+        }
     } else {
-        $passwordError = "L'ancien mot de passe n'est pas correct. Veuillez réessayez.";
+        $passwordError = "Les deux mots de passe (ancien et nouveau) sont identiques ! Veuillez en séléctionner un autre pour appliquer le changement";
     }
 }
 
-
+$haveResult = false;
 $passwordColor = (is_null($passwordSuccess)) ? "red" : "green";
 $emailColor = (is_null($emailSuccess)) ? "red" : "green";
 $usernameColor = (is_null($usernameSuccess)) ? "red" : "green";
-
 // ==> Show profile backend
 if (!is_null($idOfProfilToShow)) {
     if ($idOfProfilToShow == $currentIdUser) {
-        $UserToShow = $_SESSION['auth'];
+        $userToShow = $_SESSION['auth'];
         $isMyAccount = true;
     } else {
         $result = mysqli->query("SELECT * FROM user WHERE id = " . $idOfProfilToShow);
         $result = $result->fetch_row();
         if (!empty($result)) {
-            $UserToShow = new User($idOfProfilToShow, $result[1], $result[2], $result[4]);
-        }
+            $userToShow = new User(...$result);
+        }   
     }
+    $result = mysqli->query("SELECT * from articles WHERE idUser = $idOfProfilToShow ORDER BY dateOfPost DESC");
 }

@@ -109,3 +109,8 @@ button {
 li {
   list-style-type: none;
 }
+
+textarea {
+  resize: none;
+  font-family: $font-Oswald;
+}

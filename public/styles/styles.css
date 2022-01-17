@@ -69,6 +69,11 @@ li {
   list-style-type: none;
 }
 
+textarea {
+  resize: none;
+  font-family: "Oswald", sans-serif;
+}
+
 .RealContent {
   width: 100%;
   height: 100px;
