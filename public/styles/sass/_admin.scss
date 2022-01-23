@@ -18,7 +18,7 @@
     .postContainer {
         @include verticalCenter;
         flex-direction: column;
-
+        width: 120%;
         .postContent {
             margin-bottom: 2cm;
         }

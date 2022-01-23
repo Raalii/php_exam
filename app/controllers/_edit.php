@@ -23,7 +23,6 @@ if (!is_null($editIdArticle)) {
     $result = $result->fetch_row();
     if (is_array($result)) $postToShow = new Post(...$result);
 }
-
 ?>
 
 

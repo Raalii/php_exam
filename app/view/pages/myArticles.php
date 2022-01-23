@@ -1,7 +1,7 @@
-<?php if (!is_null($result)) : ?>
+<?php if (!is_null($resultRow)) : ?>
     <h1>Nombre total d'article : <?= $nbrOfArticles ?></h1>
     
-    <?php while($row = $result->fetch_row()) : ?>
+    <?php while($row = $resultRow->fetch_row()) : ?>
         <?php $currentPost = new Post(...$row); ?>
         <div class="container" style="border: 0.5px #1f1f1f solid;margin-bottom:2px">
         <h3>Titre : <?= $currentPost->getTitle() ?></h3>

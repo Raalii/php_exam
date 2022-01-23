@@ -9,9 +9,9 @@ class Post_User extends Post
     private string $type;
 
     
-    public function __construct(int $idArticle, string $title, string $description, string $dateOfPost, int $idUser, string $email, string $username, string $type)
+    public function __construct(int $idArticle, string $title, string $description, string $dateOfPost, int $idUser, string $image, string $email, string $username, string $type)
     {
-        parent::__construct($idArticle, $title, $description, $dateOfPost, $idUser);
+        parent::__construct($idArticle, $title, $description, $dateOfPost, $idUser, $image);
         $this->username = $username;
         $this->email = $email;
         $this->type = $type;

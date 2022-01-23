@@ -10,7 +10,7 @@
                 <input type="text" name="titleMod" id="title" placeholder="Un titre sympa aller !" value="<?= $postToShow->getTitle() ?>"> <br>
                 <label for="">Description</label> <br>
                 <textarea name="descriptionMod" id="" cols="100" rows="20"><?= $postToShow->getDescription() ?></textarea>
-                <!-- <input type="file" name="image"> -->
+                <input type="file" name="image">
                 <button type="submit">Appliquer les modifications</button>
         </form>
 <?php else : ?>

@@ -33,7 +33,7 @@ if (!is_null($deletePostId)) {
 
 $deletePostColor = ($deletePostSuccess) ? "green" : "red";
 $deleteUserColor = ($deleteUserSuccess) ? "green" : "red";
-$selection = "idArticle, title, description, dateOfPost, idUser, email, username, type";
+$selection = "idArticle, title, description, dateOfPost, idUser, image, email, username, type";
 
 
 

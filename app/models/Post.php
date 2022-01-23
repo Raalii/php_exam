@@ -9,15 +9,17 @@ class Post {
     protected string $description;
     protected string $dateOfPost;
     protected int $idUser;
+    protected string $image;
 
     
-    public function __construct(int $idArticle, string $title, string $description, string $dateOfPost, int $idUser)
+    public function __construct(int $idArticle, string $title, string $description, string $dateOfPost, int $idUser, string $image)
     {
         $this->idArticle = $idArticle;
         $this->title = $title;
         $this->description = $description;
         $this->dateOfPost = $dateOfPost;
         $this->idUser = $idUser;
+        $this->image = $image;
     }
 
 
@@ -125,4 +127,25 @@ class Post {
 
         return $this;
     }
+
+    /**
+     * Get the value of image
+     */ 
+    public function getImage() : string
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set the value of image
+     *
+     * @return  self
+     */ 
+    public function setImage(string $image) : self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
 }

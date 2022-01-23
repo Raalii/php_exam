@@ -32,6 +32,13 @@
                 <?php while ($row = $resultPost->fetch_row()) : ?>
                     <?php $currentPost = new Post_User(...$row) ?>
                     <div class="postContent">
+                        <?php if (!empty($currentPost->getImage())) {
+                            $url = "data:image/jpg;charset=utf8;base64," . base64_encode($currentPost->getImage());
+                        } else {
+                            $url = "https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e1c8fe0c9197d66232511525bfd1cc82&auto=format&fit=crop&w=1100&q=80";
+                        }
+                        ?>
+                        <img src="<?= $url ?>" class="mask" width="100px" height="auto">
                         <li>Titre : <?= $currentPost->getTitle() ?></li>
                         <li>Description : <?= $currentPost->getDescription() ?> </li>
                         <li>Fait par <a href="#user_<?= $currentPost->getIdUser() ?>"><?= $currentPost->getUsername() ?></a></li>

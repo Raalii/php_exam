@@ -4,7 +4,7 @@ $choice = $idArticle;
 $delete = (empty($_POST['delete'])) ? null : $_POST['delete'];
 $success = null;
 $result = null;
-$selection = "idArticle, title, description, dateOfPost, idUser, email, username, type";
+$selection = "idArticle, title, description, dateOfPost, idUser, image, email, username, type";
 $Post_User = null;
 
 

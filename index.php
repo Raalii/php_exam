@@ -59,8 +59,8 @@ $router->map("GET|POST",  BASE_URL . "/articles-details-[i:idArticle]", function
 $router->map("GET|POST",  BASE_URL . "/profile-[i:idOfProfilToShow]", function ($idOfProfilToShow) {
 	redirectUserAccordingToStateOfSession();
 	require "./app/models/Post.php";
-	require "./app/controllers/_account.php";
 	require "./app/view/include/header.php";
+	require "./app/controllers/_account.php";
 	require "./app/view/pages/account.php";
 });
 
@@ -69,8 +69,8 @@ $router->map("GET|POST",  BASE_URL . "/my-profile", function () {
 	redirectUserAccordingToStateOfSession();
 	$idOfProfilToShow = $_SESSION['auth']->getId();
 	require "./app/models/Post.php";
-	require "./app/controllers/_account.php";
 	require "./app/view/include/header.php";
+	require "./app/controllers/_account.php";
 	require "./app/view/pages/account.php";
 });
 
@@ -78,8 +78,8 @@ $router->map("GET|POST",  BASE_URL . "/my-profile", function () {
 
 $router->map("GET|POST",  BASE_URL . "/articles/new", function () {
 	redirectUserAccordingToStateOfSession();
-	require "./app/controllers/_newPost.php";
 	require "./app/view/include/header.php";
+	require "./app/controllers/_newPost.php";
 	require "./app/view/pages/newPost.php";
 });
 
@@ -87,8 +87,8 @@ $router->map("GET|POST",  BASE_URL . "/articles/new", function () {
 $router->map("GET|POST",  BASE_URL . "/myArticles", function () 	{
 	redirectUserAccordingToStateOfSession();
 	require "./app/models/Post.php";
-	require "./app/controllers/_myArticles.php";
 	require "./app/view/include/header.php";
+	require "./app/controllers/_myArticles.php";
 	require "./app/view/pages/myArticles.php";
 });
 

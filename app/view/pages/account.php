@@ -43,24 +43,30 @@
     <?php endif  ?>
     <h1> Tout les article postés : </h1>
     <div class="indexContainer">
-    <?php if (is_object($result)) : ?>
-        <?php while ($row = $result->fetch_row()) : ?>
-            <?php $haveResult = true ?>
-            <?php $currentPost = new Post(...$row) ?>
+        <?php if (is_object($result)) : ?>
+            <?php while ($row = $result->fetch_row()) : ?>
+                <?php $haveResult = true ?>
+                <?php $currentPost = new Post(...$row) ?>
                 <div class="container">
-                    <div class="square">
-                        <img src="https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e1c8fe0c9197d66232511525bfd1cc82&auto=format&fit=crop&w=1100&q=80" class="mask">
-                        <div class="h1"><?= $row[1] ?></div>
-                        <p> <?= (strlen($row[2]) < 300) ? $row[2] : substr($row[2], 0, 300) . "..." ?> </p>
-                        <a href="<?= BASE_URL . "/articles-details-$row[0]" ?>"> <button class="button">En savoir plus</button></a>
-                    </div>
-                </div>
+				<div class="square">
+					<?php if (!empty($currentPost->getImage())) {
+						$url = "data:image/jpg;charset=utf8;base64," . base64_encode($currentPost->getImage());
+					} else {
+						$url = "https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e1c8fe0c9197d66232511525bfd1cc82&auto=format&fit=crop&w=1100&q=80";
+					}
+					?>	
+					<img src="<?= $url ?>" class="mask">
+					<div class="h1"><?= $currentPost->getTitle() ?></div>
+					<p> <?= (strlen($currentPost->getDescription()) < 300) ? $currentPost->getDescription() : substr($currentPost->getDescription(), 0, 300) . "..." ?> </p>
+					<a href="<?= BASE_URL . "/articles-details-" . $currentPost->getIdArticle() ?>"> <button class="button">En savoir plus</button></a>
+				</div>
+			</div>
             <?php endwhile ?>
-    <?php endif ?>
-        </div>
-        <?php if (!$haveResult) : ?>
-            <h1>Cet utilisateur n'a posté aucun article</h1>
         <?php endif ?>
+    </div>
+    <?php if (!$haveResult) : ?>
+        <h1>Cet utilisateur n'a posté aucun article</h1>
+    <?php endif ?>
 <?php else : ?>
     <h1>Oups, il semblerait qu'il y ait une erreur, veuillez recliquer sur l'onglet "Profil"</h1>
 <?php endif ?>
