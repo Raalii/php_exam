@@ -1,15 +1,5 @@
-<?php
-require "../../models/User.php";
-require "../../models/Post.php";
-require "../../models/Post_User.php";
-session_start();
-require "../../controllers/_admin.php";
-require "../include/header.php";
-?>
-
-
 <?php if ($_SESSION['auth']->getType() != 'Admin') : ?>
-    <h1>Vous n'êtes pas autorisé à accéder à cette page. Veuillez retourner au <a href="/">menu principal</a> </h1>
+    <h1>Vous n'êtes pas autorisé à accéder à cette page. Veuillez retourner au <a href="<?= BASE_URL ?>/">menu principal</a> </h1>
 <?php else :  ?>
     <h1>Bienvenue cher Admin !</h1>
     <p style="color: <?= $deletePostColor ?>;"><?= ($deletePostSuccess) ? $deletePostSuccess : $deletePostError ?> </p>
@@ -41,9 +31,6 @@ require "../include/header.php";
             <ul>
                 <?php while ($row = $resultPost->fetch_row()) : ?>
                     <?php $currentPost = new Post_User(...$row) ?>
-                    <li>
-                        <?php var_dump($row) ?>
-                    </li>
                     <div class="postContent">
                         <li>Titre : <?= $currentPost->getTitle() ?></li>
                         <li>Description : <?= $currentPost->getDescription() ?> </li>
@@ -52,6 +39,10 @@ require "../include/header.php";
                             <input type="hidden" name="deletePost" value="<?= $currentPost->getIdArticle() ?>">
                             <button>Supprimer ce post</button>
                         </form>
+                        <form action="<?= BASE_URL ?>/myArticles/edit" method="POST">
+                            <input type="hidden" name="idArticle" value="<?= $currentPost->getIdArticle() ?>">
+                            <button type="submit">editer l'article</button>
+                        </form>
                     </div>
                 <?php endwhile ?>
             </ul>
@@ -59,6 +50,3 @@ require "../include/header.php";
         </div>
     </div>
 <?php endif ?>
-
-
-<?php require "../include/footer.php" ?>

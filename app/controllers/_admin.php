@@ -1,11 +1,8 @@
 <?php
-require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php');
-require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'functions.php');
-
 $currentUser = $_SESSION['auth'];
 
-$deleteUserId = (!empty($_POST['deleteUser'])) ? $_POST['deleteUser'] : null;
-$deletePostId = (!empty($_POST['deletePost'])) ? $_POST['deletePost'] : null;
+$deleteUserId = $_POST['deleteUser'] ?? null;
+$deletePostId = $_POST['deletePost'] ?? null;
 
 $deleteUserSuccess = null;
 $deleteUserError = null;

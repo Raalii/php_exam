@@ -1,7 +1,7 @@
 <?php
 
 
-
+// Double inherit is not possible in php
 class Post_User extends Post
 {
     private string $email;

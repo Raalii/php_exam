@@ -1,18 +1,3 @@
-<?php
-session_start();
-$title = "Zinou";
-$displayHeader = true;
-require '../../controllers/_login.php';
-?>
-
-<?php if (isset($_SESSION['auth'])) : ?>
-    <script>window.top.location = "http://localhost"</script>
-<?php endif ?>
-
-<?php
-require '../include/header.php';
-?>
-
 <div class="NavbarContainer"></div>
 <div class="login">
     <div class="background">
@@ -32,12 +17,7 @@ require '../include/header.php';
 
         <button>Se Connecter</button>
         <div class="social">
-            <p> Pas de compte ? <a href="./register.php">S'inscrire</a> </p>
+            <p> Pas de compte ? <a href="<?= BASE_URL ?>/register">S'inscrire</a> </p>
         </div>
     </form>
 </div>
-
-
-<?php
-require '../include/footer.php';
-?>

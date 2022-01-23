@@ -11,19 +11,26 @@ function checkDuplicateValueInColumn(string $table, string $column, string $valu
 }
 
 
-function checkIfUserIsConnected() : bool {
+function checkIfUserIsConnected(): bool
+{
     return !empty($_SESSION['auth']);
 }
 
+function redirectUserAccordingToStateOfSession()
+{
 
-function redirectUserAccordingToStateOfSession() {
-    if (!checkIfUserIsConnected()) return <<<HTML
-        <script>window.top.location = "http://localhost/app/view/pages/login.php"</script>
-HTML;
+    if (!checkIfUserIsConnected()) {
+?>
+        <script>
+            window.top.location = "http://localhost/php_exam/login"
+        </script>
+<?php
+    }
 }
 
 
-function checkNbrOfPost(int $idUser) : int {
+function checkNbrOfPost(int $idUser): int
+{
     $result = mysqli->query("SELECT COUNT(*) FROM articles WHERE idUser = $idUser");
     $result = $result->fetch_row();
     return intval($result[0]);

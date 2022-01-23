@@ -1,16 +1,3 @@
-<?php
-$title = "S'inscrire";
-$displayHeader = true;
-require '../../controllers/_register.php';
-
-?>
-
-    <?php if (isset($_SESSION['auth'])) : ?>
-         <script>window.top.location = "http://localhost"</script>
-    <?php endif ?>
-    
-<?php require '../include/header.php';?>
-
 <div class="NavbarContainer" style="z-index: 0;"></div>
 <div class="register">
     <div class="background">
@@ -34,15 +21,10 @@ require '../../controllers/_register.php';
 
         <button type="submit" id="submit">S'inscrire</button>
         <div class="social">
-            <p> Déjà un compte ? <a href="./login.php">Se connecter</a> </p>
+            <p> Déjà un compte ? <a href="<?= BASE_URL ?>/login">Se connecter</a> </p>
         </div>
     </form>
 </div>
-
-
-<?php
-require '../include/footer.php';
-?>
 
 
 <script>
@@ -72,3 +54,4 @@ require '../include/footer.php';
         }
     }
 </script>
+

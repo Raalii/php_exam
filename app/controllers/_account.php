@@ -1,7 +1,4 @@
 <?php
-require (dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php');
-require (dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'functions.php');
-$idOfProfilToShow = (empty($_GET['profile'])) ? null : intval($_GET['profile']);
 $isMyAccount = false;
 $userToShow = null;
 $result = null;
@@ -69,6 +66,7 @@ $haveResult = false;
 $passwordColor = (is_null($passwordSuccess)) ? "red" : "green";
 $emailColor = (is_null($emailSuccess)) ? "red" : "green";
 $usernameColor = (is_null($usernameSuccess)) ? "red" : "green";
+
 // ==> Show profile backend
 if (!is_null($idOfProfilToShow)) {
     if ($idOfProfilToShow == $currentIdUser) {

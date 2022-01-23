@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php');
+// require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php');
 $description = (empty($_POST['description'])) ? null : $_POST['description'];
 $titlePost = (empty($_POST['title'])) ? null : $_POST['title'];
 $error = null;

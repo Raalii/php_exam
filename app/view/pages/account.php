@@ -1,13 +1,3 @@
-<?php
-require "../../models/User.php";
-require "../../models/Post.php";
-// require "../../models/Post_User.php";
-session_start();
-
-require "../../controllers/_account.php";
-require "../include/header.php";
-?>
-
 <?php if (!is_null($userToShow)) : ?>
     <div class="AccountContent">
         <h1><?= ($isMyAccount) ? "Mon profil <br> Nom actuel : " . $userToShow->getUsername()  : "Profil de " . $userToShow->getUsername()  ?></h1>
@@ -40,7 +30,7 @@ require "../include/header.php";
     </div>
     <?php if ($isMyAccount) : ?>
         <div class="popUpFormular">
-            <form action="http://localhost/app/view/pages/account.php?profile=<?= $idOfProfilToShow ?>" method="POST">
+            <form action="" method="POST">
                 <input type="email" name="changeEmail" id="changeEmail" placeholder="modifier votre email"> <br>
                 <input type="text" name="changeUsername" id="changeUsername" placeholder="modifier votre pseudo"> <br>
                 <h1 style="color: white;">Modifier votre mot de passe</h1>
@@ -53,7 +43,7 @@ require "../include/header.php";
     <?php endif  ?>
     <h1> Tout les article postés : </h1>
     <div class="indexContainer">
-    <?php if (is_array($result)) : ?>
+    <?php if (is_object($result)) : ?>
         <?php while ($row = $result->fetch_row()) : ?>
             <?php $haveResult = true ?>
             <?php $currentPost = new Post(...$row) ?>
@@ -62,10 +52,7 @@ require "../include/header.php";
                         <img src="https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e1c8fe0c9197d66232511525bfd1cc82&auto=format&fit=crop&w=1100&q=80" class="mask">
                         <div class="h1"><?= $row[1] ?></div>
                         <p> <?= (strlen($row[2]) < 300) ? $row[2] : substr($row[2], 0, 300) . "..." ?> </p>
-                        <form action="/app/view/pages/postDetail.php" method="GET">
-                            <input type="hidden" name="articleDetail" value="<?= $row[0] ?>">
-                            <div><button class="button">En savoir plus</button></div>
-                        </form>
+                        <a href="<?= BASE_URL . "/articles-details-$row[0]" ?>"> <button class="button">En savoir plus</button></a>
                     </div>
                 </div>
             <?php endwhile ?>

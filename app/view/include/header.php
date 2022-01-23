@@ -1,17 +1,14 @@
 <?php
-if (empty($title)) $title = "Forum";
+$title = $title ?? "Forum";
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title><?= $title ?></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../public/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="<?= $path ?? BASE_URL . "/public/styles/" ?>styles.css">
     <link rel="shortcut icon" href="../../../public/favicon.ico" type="image/x-icon">
 </head>
 
@@ -26,17 +23,17 @@ if (empty($title)) $title = "Forum";
 
             </div>
             <nav>
-                <a href="/">Acceuil</a>
-                <a href="/app/view/pages/account.php?profile=<?= $_SESSION['auth']->getId() ?>">Mon profil</a>
-                <a href="/app/view/pages/newPost.php">Publier</a>   
-                <a href="/app/view/pages/search.php">Rechercher</a>
-                <a href="/app/view/pages/myArticles.php">Mes articles</a>
+                <a href="/php_exam">Acceuil</a>
+                <a href="/php_exam/my-profile">Mon profil</a>
+                <a href="/php_exam/articles/new">Publier</a>   
+                <!-- <a href="/php_exam/search">Rechercher</a> -->
+                <a href="/php_exam/myArticles">Mes articles</a>
                 <?php if ($_SESSION['auth']->getType() == "Admin") : ?>
-                <a href="/app/view/pages/admin.php">Admin</a>
+                <a href="<?= BASE_URL ?>/admin">Admin</a>
                 <?php endif ?>
             </nav>
             <div id="user-panel">
-                <form action="/app/view/pages/login.php" method="POST">
+                <form action="<?= BASE_URL ?>/login" method="POST">
                     <input type="hidden" name="deconnect" value="true">
                     <button class="connect-link" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style=" fill:#000000;">

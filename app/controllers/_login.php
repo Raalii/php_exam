@@ -2,10 +2,6 @@
 
 $error = null;
 $success = null;
-
-require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php');
-require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'functions.php');
-require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'User.php');
 $emailOrUsername = (empty($_POST['email'])) ? null : $_POST['email'];
 $password = (empty($_POST['password'])) ? null : $_POST['password'];
 $deconnect = (empty($_POST['deconnect'])) ? null : $_POST['deconnect'];
@@ -16,7 +12,7 @@ if (!is_null($emailOrUsername) && !is_null($password)) {
     $result = mysqli->query("SELECT * FROM user WHERE $column = '$emailOrUsername'");
     $result = $result->fetch_row();
     if (!empty($result)) {
-        if (password_verify($password, $result[4])) {
+        if (password_verify($password, $result[4])) { // result[4] ==> password 
             $User = new User(...$result);
             $_SESSION['auth'] = $User;
         } else {

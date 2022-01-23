@@ -1,11 +1,3 @@
-<?php 
-require "../../models/User.php";
-require "../../models/Post.php";
-session_start();
-require "../../controllers/_myArticles.php";
-require "../include/header.php";
-?>
-
 <?php if (!is_null($result)) : ?>
     <h1>Nombre total d'article : <?= $nbrOfArticles ?></h1>
     
@@ -20,7 +12,7 @@ require "../include/header.php";
             <input type="hidden" name="delete" value="delete">
             <button type="submit">Supprimer mon post</button>
         </form>
-        <form action="http://localhost/app/view/pages/edit.php" method="POST">
+        <form action="<?= BASE_URL ?>/myArticles/edit" method="POST">
             <input type="hidden" name="idArticle" value="<?= $currentPost->getIdArticle() ?>">
             <button type="submit">editer l'article</button>
         </form>
@@ -28,8 +20,7 @@ require "../include/header.php";
     <?php endwhile ?>
 
 <?php else : ?> 
-    <h1>Oups ! Vous n'avez pas crée d'Article. Vous pouvez <a href="http://localhost/app/view/pages/newPost.php">en créer un ici</a> </h1>
-<?php endif ?>
+    <h1>Oups ! Vous n'avez pas crée d'Article. Vous pouvez <a href="<?= BASE_URL ?>/articles/new">en créer un ici</a> </h1>
+<?php endif;
 
-<?php
-require "../include/footer.php";
+

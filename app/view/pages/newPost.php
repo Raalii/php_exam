@@ -1,12 +1,3 @@
-<?php 
-require "../../models/User.php";
-session_start();
-require "../../controllers/_newPost.php";
-$title = "Publier un post";
-require "../include/header.php"; ?>
-
-
-
 <div class="newPostContainer">
     <form action="" method="post">
         <label for="title">Titre</label> <br>
@@ -19,7 +10,3 @@ require "../include/header.php"; ?>
 </div>
 
 <p> <?= (!is_null($error)) ? $error : $success; ?> </p>
-
-<?php 
-require "../include/footer.php";
-?>

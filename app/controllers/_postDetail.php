@@ -1,6 +1,6 @@
 <?php
-require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php');
-$choice = (empty($_GET['articleDetail'])) ? null : $_GET['articleDetail'];
+// require_once(dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php');
+$choice = $idArticle;
 $delete = (empty($_POST['delete'])) ? null : $_POST['delete'];
 $success = null;
 $result = null;

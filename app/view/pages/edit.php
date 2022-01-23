@@ -1,10 +1,3 @@
-<?php
-require "../../models/User.php";
-require "../../models/Post.php";
-session_start();
-require "../include/header.php";
-require "../../controllers/_edit.php";
-?>
 
 
 <?php if (!is_null($success) || !(is_null($error))) : ?>
